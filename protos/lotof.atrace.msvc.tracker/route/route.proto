@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+option go_package = "./;generated";
+
+package tracker_route_service;
+
+import "generic/filter.proto";
+import "generic/list.proto";
+
+service RouteService {
+  rpc GetRoutes(GetRoutesRequest) returns (GetRoutesResponse);
+  rpc GetRoute(GetRouteRequest) returns (Route);
+  rpc CreateRoute(CreateRouteRequest) returns (Route);
+  rpc DeleteRoute(DeleteRouteRequest) returns (Route);
+}
+
+message Route {
+  uint64 id = 1;
+  string title = 2;
+  repeated RouteMilestone milestones = 3;
+}
+
+message RouteMilestone {
+  uint64 postId = 2;
+  sint32 priority = 3;
+}
+
+message CreateRouteRequest {
+  string title = 1;
+  repeated RouteMilestone milestones = 2;
+}
+
+message GetRoutesRequest {
+  string search = 1;
+  generic.Pagination pagination = 2;
+  generic.Sort sort = 3;
+}
+
+message GetRoutesResponse {
+  repeated Route routes = 1;
+  generic.PaginationInfo pagination_info = 2;
+}
+
+message GetRouteRequest {
+  string id = 1;
+}
+
+message DeleteRouteRequest {
+  string id = 1;
+}

@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+option go_package = "./;generated";
+
+package tracker_record_service;
+
+import "generic/filter.proto";
+import "generic/list.proto";
+
+service RecordService {
+  rpc GetRecords(GetRecordsRequest) returns (GetRecordsResponse);
+  rpc CreateRecord(CreateRecordRequest) returns (Record);
+}
+
+message Record {
+  uint64 id = 1;
+  uint64 postId = 2;
+  string userId = 3;
+  uint64 timestamp = 4;
+  RecordMethod Method = 5;
+}
+
+enum RecordMethod {
+  METHOD_UNKNOWN = 0;
+  METHOD_POST_PHRASE = 1;
+  METHOD_QR = 2;
+  METHOD_QR_STATIC = 3;
+}
+
+message CreateRecordRequest {
+  uint64 postId = 1;
+  string userId = 2;
+  RecordMethod Method = 4;
+}
+
+message GetRecordsRequest {
+  string search = 1;
+  generic.Pagination pagination = 2;
+  generic.Sort sort = 3;
+}
+
+message GetRecordsResponse{
+  repeated Record records = 1;
+  generic.PaginationInfo pagination_info = 2;
+}
