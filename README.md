@@ -1,1 +1,1 @@
-# lotof.sample.proto
+# lotof.atrace.proto
