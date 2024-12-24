@@ -9,7 +9,7 @@ import "generic/list.proto";
 
 service RecordService {
   rpc GetRecords(GetRecordsRequest) returns (GetRecordsResponse);
-  rpc GetRecordsByPostId(GetRecordsRequest) returns (GetRecordsResponse);
+  rpc GetRecordsByPostId(GetRecordsByPostIdRequest) returns (GetRecordsResponse);
   rpc CreateRecord(CreateRecordRequest) returns (Record);
 }
 
