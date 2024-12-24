@@ -33,7 +33,7 @@ message PostLocation {
 message CreatePostRequest {
   string title = 1;
   string description = 2;
-  string Phrase = 3;
+  string phrase = 3;
   PostLocation location = 4;
 }
 
