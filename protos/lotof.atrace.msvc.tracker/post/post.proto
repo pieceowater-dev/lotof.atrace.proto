@@ -34,7 +34,8 @@ message PostLocation {
 message CreatePostRequest {
   string title = 1;
   string Description = 2;
-  PostLocation location = 3;
+  string Phrase = 3;
+  PostLocation location = 4;
 }
 
 message GetPostsRequest {
