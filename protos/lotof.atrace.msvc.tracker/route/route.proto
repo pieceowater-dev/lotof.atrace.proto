@@ -42,9 +42,9 @@ message GetRoutesResponse {
 }
 
 message GetRouteRequest {
-  string id = 1;
+  int64 id = 1;
 }
 
 message DeleteRouteRequest {
-  string id = 1;
+  int64 id = 1;
 }
