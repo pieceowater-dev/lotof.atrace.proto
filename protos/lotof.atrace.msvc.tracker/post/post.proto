@@ -22,7 +22,6 @@ message Post {
 }
 
 message PostLocation {
-  uint64 postId = 2;
   string comment = 3;
   string country = 4;
   string city = 5;
