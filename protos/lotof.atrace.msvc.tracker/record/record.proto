@@ -9,6 +9,7 @@ import "generic/list.proto";
 
 service RecordService {
   rpc GetRecords(GetRecordsRequest) returns (GetRecordsResponse);
+  rpc GetRecordsByPostId(GetRecordsRequest) returns (GetRecordsResponse);
   rpc CreateRecord(CreateRecordRequest) returns (Record);
 }
 
@@ -17,7 +18,7 @@ message Record {
   uint64 postId = 2;
   string userId = 3;
   uint64 timestamp = 4;
-  RecordMethod Method = 5;
+  RecordMethod method = 5;
 }
 
 enum RecordMethod {
@@ -30,7 +31,7 @@ enum RecordMethod {
 message CreateRecordRequest {
   uint64 postId = 1;
   string userId = 2;
-  RecordMethod Method = 4;
+  RecordMethod method = 4;
 }
 
 message GetRecordsRequest {
@@ -42,4 +43,10 @@ message GetRecordsRequest {
 message GetRecordsResponse{
   repeated Record records = 1;
   generic.PaginationInfo pagination_info = 2;
+}
+
+message GetRecordsByPostIdRequest {
+  int64 postId = 1;
+  generic.Pagination pagination = 2;
+  generic.Sort sort = 3;
 }
