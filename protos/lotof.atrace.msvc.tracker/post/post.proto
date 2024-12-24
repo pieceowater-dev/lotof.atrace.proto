@@ -44,11 +44,11 @@ message GetPostsRequest {
 }
 
 message GetPostRequest {
-  string id = 1;
+  int64 id = 1;
 }
 
 message DeletePostRequest {
-  string id = 1;
+  int64 id = 1;
 }
 
 message GetPostsResponse {
