@@ -1,11 +1,11 @@
 syntax = "proto3";
 
-option go_package = "./;generated";
+option go_package = "app/internal/core/grpc/generated/lotof.atrace.msvc.tracker/post";
 
 package tracker_post_service;
 
-import "generic/filter.proto";
-import "generic/list.proto";
+import "generic/utils/filter.proto";
+import "generic/utils/list.proto";
 
 service PostService {
   rpc GetPosts(GetPostsRequest) returns (GetPostsResponse);
@@ -39,8 +39,8 @@ message CreatePostRequest {
 
 message GetPostsRequest {
   string search = 1;
-  generic.Pagination pagination = 2;
-  generic.Sort sort = 3;
+  utils.Pagination pagination = 2;
+  utils.Sort sort = 3;
 }
 
 message GetPostRequest {
@@ -53,5 +53,5 @@ message DeletePostRequest {
 
 message GetPostsResponse {
   repeated Post posts = 1;
-  generic.PaginationInfo pagination_info = 2;
+  utils.PaginationInfo pagination_info = 2;
 }

@@ -1,11 +1,11 @@
 syntax = "proto3";
 
-option go_package = "./;generated";
+option go_package = "app/internal/core/grpc/generated/lotof.atrace.msvc.tracker/route";
 
 package tracker_route_service;
 
-import "generic/filter.proto";
-import "generic/list.proto";
+import "generic/utils/filter.proto";
+import "generic/utils/list.proto";
 
 service RouteService {
   rpc GetRoutes(GetRoutesRequest) returns (GetRoutesResponse);
@@ -32,13 +32,13 @@ message CreateRouteRequest {
 
 message GetRoutesRequest {
   string search = 1;
-  generic.Pagination pagination = 2;
-  generic.Sort sort = 3;
+  utils.Pagination pagination = 2;
+  utils.Sort sort = 3;
 }
 
 message GetRoutesResponse {
   repeated Route routes = 1;
-  generic.PaginationInfo pagination_info = 2;
+  utils.PaginationInfo pagination_info = 2;
 }
 
 message GetRouteRequest {
