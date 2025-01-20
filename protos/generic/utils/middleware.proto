@@ -2,7 +2,7 @@ syntax = "proto3";
 
 option go_package = "app/internal/core/grpc/generated/generic/utils";
 
-package middleware;
+package utils;
 
 message UserMetadata {
   string user_id = 1;
