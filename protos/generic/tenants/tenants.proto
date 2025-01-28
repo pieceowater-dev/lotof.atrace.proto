@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-option go_package = "app/internal/core/grpc/generated/lotof.atrace.gtw/gtw";
+option go_package = "app/internal/core/grpc/generated/generic/tenants";
 
-package gtw;
+package tenants;
 
 service GatewayService {
   rpc AddNamespaceTenant(AddNamespaceTenantRequest) returns (AddNamespaceTenantResponse);
@@ -15,4 +15,8 @@ message AddNamespaceTenantResponse {
 message AddNamespaceTenantRequest {
   string namespace = 1;   // Namespace slug
   string credentials = 2; // Encrypted "username:password"
+}
+
+service AppTenantsService {
+  rpc NewTenant(AddNamespaceTenantRequest) returns (AddNamespaceTenantResponse);
 }
