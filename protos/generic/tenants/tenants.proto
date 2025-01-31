@@ -2,6 +2,8 @@ syntax = "proto3";
 
 option go_package = "app/internal/core/grpc/generated/generic/tenants";
 
+// todo: rename with ATRACE prefix to avoid collisions after generating go code from multiple APPS
+
 package tenants;
 
 service GatewayService {
